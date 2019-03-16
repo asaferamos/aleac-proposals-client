@@ -1,0 +1,11 @@
+client:
+    container_name: aleac_client
+    build: ./
+    dockerfile: Dockerfile
+    command: "sh -c 'yarn start'"
+    ports:
+        - "3001:3000"
+    volumes:
+        - ./:/usr/src/app
+        - ./logs/npm:/root/.npm/_logs
+        - ./package.json:/usr/src/app/package.json
