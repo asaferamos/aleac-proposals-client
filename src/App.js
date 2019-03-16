@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Login from './Auth/Login';
+import Logout from './Auth/Logout';
+
 import './App.css';
+import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
+	componentDidMount(){
+		if(localStorage.getItem('token')){
+			this.props.history.push("/");
+		}
+	}
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+		<Switch>
+			<Route path="/" component={Login} />
+			<Route path="/buscar" component={Logout} />
+		</Switch>
     );
   }
 }
 
-export default App;
+export const ErrorPage = () => (
+	<div>
+		<h1>Página não encontrada</h1>
+	</div>
+)
+
+export default { App, ErrorPage };
