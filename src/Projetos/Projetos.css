@@ -1,0 +1,13 @@
+body{
+    background-color: #2E7A8A;
+}
+
+#top-name{
+    text-align: left;
+    font-size: 25px;
+}
+
+#top-name span{
+    font-size: 18px;
+    line-height: 40px;
+}
