@@ -13,3 +13,7 @@ yarn install
 REACT_APP_URL_API=http://localhost:3000 yarn start
 ```
 _Substituir a URL acima para a url da API_
+
+![Página de Login](https://i.imgur.com/fP76OJ7.png)
+![Página da Matéria Legislativa](https://i.imgur.com/90hJ1ud.png)
+![Página com as matérias salvas como favoritas](https://i.imgur.com/P6D3Atx.png)
