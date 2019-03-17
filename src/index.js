@@ -6,6 +6,7 @@ import Login from './Auth/Login';
 import Logout from './Auth/Logout';
 import Projetos from './Projetos/Projetos'
 import Buscar from './Projetos/Buscar'
+import BuscarPage from './Projetos/BuscarPage'
 import PrivateRoute from './helpers/PrivateRoute';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -18,7 +19,7 @@ ReactDOM.render(
             <Route path="/cadastro" exact={true} component={Logout} />
 
             <PrivateRoute path="/projetos" exact={true} component={Projetos} />
-            <PrivateRoute path="/buscar" exact={true} component={Buscar} />
+            <PrivateRoute path="/buscar" exact={true} component={BuscarPage} />
             <PrivateRoute path="/buscar/:ext_id" exact={true} component={Buscar} />
 
             {/* <Route path="*" exact={true} component={ErrorPage} /> */}

@@ -23,3 +23,7 @@ body{
 #favoritar{
     float: right;
 }
+
+.ui .card{
+    height: 200px;
+}

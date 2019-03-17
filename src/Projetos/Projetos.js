@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Container, Grid, Card } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 import './Projetos.css';
 
 
@@ -16,7 +17,7 @@ class Projetos extends Component {
 	componentDidMount(){
 		axios({
 			method: 'GET',
-			url   : 'http://localhost:3000/proposal',
+			url   : `${process.env.REACT_APP_URL_API}/proposal`,
 			headers: {
 				'Authorization': `Bearer ${localStorage.getItem('token')}`
 			}
@@ -41,20 +42,23 @@ class Projetos extends Component {
 					</Grid.Row>
 
 					<Grid.Row>
-						<Card.Group>
-							{
-								this.state.favoritos.map((fav,key) => {
-									return(
+						<Grid columns={3}>
+						{
+							this.state.favoritos.map((fav,key) => {
+								return(
+									<Grid.Column key={key}>
+									<Link to={`/buscar/${fav.ext_id}`}>
 										<Card
 											header={fav.title}
 											meta={fav.status}
 											description={fav.description}
-											key={key}
 										/>
-									)
-								})
-							}
-						</Card.Group>
+									</Link>
+									</Grid.Column>
+								)
+							})
+						}
+						</Grid>
 					</Grid.Row>
 				</Grid>
 			</Container>

@@ -40,7 +40,7 @@ class Login extends Component {
 			}else{
 				axios({
 					method: 'POST',
-					url   : 'http://localhost:3000/users',
+					url   : `${process.env.REACT_APP_URL_API}/users`,
 					data: {
 						email   : this.state.email,
 						password: this.state.senha,
@@ -93,7 +93,7 @@ class Login extends Component {
 	handleSubmit = () => {
 		axios({
 			method: 'POST',
-			url   : 'http://localhost:3000/auth/login',
+			url   : `${process.env.REACT_APP_URL_API}/auth/login`,
 			data: {
 				email   : this.state.email,
 				password: this.state.senha

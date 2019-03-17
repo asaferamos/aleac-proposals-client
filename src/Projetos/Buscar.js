@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Segment, Label , Feed, Button, Grid, Dimmer, Image, Loader} from 'semantic-ui-react'
+import { Container, Segment, Label , Feed, Button, Grid, Dimmer, Image, Loader, Icon } from 'semantic-ui-react'
 import axios from 'axios';
 
 class Buscar extends Component {
@@ -19,7 +19,7 @@ class Buscar extends Component {
 
 		axios({
 			method: 'GET',
-			url   : 'http://localhost:3000/proposal/' + ext_id,
+			url   : `${process.env.REACT_APP_URL_API}/proposal/${ext_id}`,
 			headers: {
 				'Authorization': `Bearer ${localStorage.getItem('token')}`
 			}
@@ -32,6 +32,10 @@ class Buscar extends Component {
 		}).catch(err => {
 			if(err.response.status == 401)
 				localStorage.clear()
+
+			if(err.response.status == 500){
+				window.location.replace('/buscar')
+			}
 		})
 	}
 
@@ -56,7 +60,7 @@ class Buscar extends Component {
 
 		axios({
 			method: method,
-			url   : 'http://localhost:3000/proposal/' + this.state.proposta.ext_id,
+			url   : `${process.env.REACT_APP_URL_API}/proposal/${this.state.proposta.ext_id}`,
 			headers: {
 				'Authorization': `Bearer ${localStorage.getItem('token')}`
 			}
@@ -113,6 +117,12 @@ class Buscar extends Component {
 									}</b>
 									<br/>
 									Data de Apresentação: <b>{this.formatDate(this.state.proposta.introduction_date)}</b>
+								</Segment>
+								<Segment>
+									<a href={this.state.proposta.link} target="_blank">
+										<Icon name='file pdf' size='big' />
+										Proposta na Íntegra
+									</a>
 								</Segment>
 								<Segment>
 									<h4>Tramitação:</h4>
