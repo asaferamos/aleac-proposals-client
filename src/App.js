@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
-import Login from './Auth/Login';
-import Logout from './Auth/Logout';
-
-import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
-	componentDidMount(){
-		if(localStorage.getItem('token')){
-			this.props.history.push("/");
-		}
+	render() {
+		return (
+			<div></div>
+		);
 	}
-  render() {
-    return (
-		<Switch>
-			<Route path="/" component={Login} />
-			<Route path="/buscar" component={Logout} />
-		</Switch>
-    );
-  }
 }
 
 export const ErrorPage = () => (
