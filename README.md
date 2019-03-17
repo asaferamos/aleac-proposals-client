@@ -1,6 +1,9 @@
 # ALEAC Matérias Legislativas - Client
 Client desenvolvido em React.js para consumir a [API ALEAC da Assembleia Legislativa do Estado do Acre](https://github.com/asaferamos/aleac-proposals-api)
 
+### Demo:
+[![Deploy](https://img.shields.io/badge/demo--prod-heroku-430098.svg)](https://aleac-parser-client.herokuapp.com/)
+
 ### Developing
 #### Com Docker:
 `sudo docker-compose up --build`
