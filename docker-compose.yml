@@ -2,7 +2,7 @@ client:
     container_name: aleac_client
     build: ./
     dockerfile: Dockerfile
-    command: "sh -c 'REACT_APP_URL_API=http://localhost:3000 yarn start'"
+    entrypoint: "./entrypoint.sh"
     ports:
         - "3001:3000"
     volumes:
