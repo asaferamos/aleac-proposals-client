@@ -14,15 +14,15 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route path="/" exact={true} component={Login} />
-            <Route path="/auth/logout" exact={true} component={Logout} />
-            <Route path="/auth/cadastro" exact={true} component={Logout} />
+            <Route path="/logout" exact={true} component={Logout} />
+            <Route path="/cadastro" exact={true} component={Logout} />
 
             <PrivateRoute path="/projetos" exact={true} component={Projetos} />
             <PrivateRoute path="/buscar" exact={true} component={Buscar} />
 
             <Route path="*" exact={true} component={ErrorPage} />
         </Switch>
-    </ BrowserRouter>,
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

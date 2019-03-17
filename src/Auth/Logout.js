@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 
 class Logout extends Component {
-  render() {
-    return (
-      <div className="Logout">
-        <header className="Logout-header">
-          <p>
-            Logout
-          </p>
-          <a
-            className="Logout-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Reacta
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor(props) {
+		super(props);
+
+		if(localStorage.getItem('token')){
+			localStorage.clear();
+			this.props.history.push('/');
+		}
+	}
+	render() {
+		return (
+			<div>
+			</div>
+		);
+	}
 }
 
 export default Logout;

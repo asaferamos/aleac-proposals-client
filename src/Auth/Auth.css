@@ -1,0 +1,24 @@
+@import '../helpers/app.css';
+
+body{
+    background-color: #0E353D;
+    color: #fff;
+}
+
+.ui.form .field > label{
+    color: #fff;
+}
+
+#bt-signup{
+    float: right;
+    margin-right: 0;
+}
+
+#title-login{
+    padding: 50px 0;
+    text-align: center;
+}
+#title-login div{
+    padding: 20px 0;
+    font-size: 25px;
+}

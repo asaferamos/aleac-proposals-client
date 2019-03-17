@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Login from './Auth/Login';
 import Logout from './Auth/Logout';
 
-import './App.css';
 import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
