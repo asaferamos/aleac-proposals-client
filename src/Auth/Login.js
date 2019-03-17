@@ -38,7 +38,6 @@ class Login extends Component {
 					}
 				})
 			}else{
-				console.log('a')
 				axios({
 					method: 'POST',
 					url   : 'http://localhost:3000/users',
@@ -102,6 +101,7 @@ class Login extends Component {
 		})
 		.then(res => {
 			localStorage.setItem('token',res.data.token);
+			localStorage.setItem('name',res.data.name);
 			this.props.history.push('/projetos')
 		}).catch(err => {
 			this.setState({

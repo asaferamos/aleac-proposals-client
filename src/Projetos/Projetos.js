@@ -5,6 +5,14 @@ import './Projetos.css';
 
 
 class Projetos extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			favoritos: []
+		};
+	}
+
 	componentDidMount(){
 		axios({
 			method: 'GET',
@@ -14,7 +22,7 @@ class Projetos extends Component {
 			}
 		})
 		.then(res => {
-
+			this.setState({favoritos: res.data})
 		}).catch(err => {
 			if(err.response.status == 401)
 				localStorage.clear()
@@ -28,24 +36,24 @@ class Projetos extends Component {
 					<Grid.Row>
 						<div id="top-name">
 							Olá {localStorage.getItem('name')},<br/>
-							<span>você tem 0 projetos salvos!</span>
+							<span>você tem {this.state.favoritos.length} projetos salvos!</span>
 						</div>
 					</Grid.Row>
 
 					<Grid.Row>
 						<Card.Group>
-							<Card
-								href='#card-example-link-card'
-								header='Elliot Baker'
-								meta='Friend'
-								description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-							/>
-							<Card
-								href='#card-example-link-card'
-								header='Elliot Baker'
-								meta='Friend'
-								description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-							/>
+							{
+								this.state.favoritos.map((fav,key) => {
+									return(
+										<Card
+											header={fav.title}
+											meta={fav.status}
+											description={fav.description}
+											key={key}
+										/>
+									)
+								})
+							}
 						</Card.Group>
 					</Grid.Row>
 				</Grid>

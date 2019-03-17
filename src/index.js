@@ -19,8 +19,9 @@ ReactDOM.render(
 
             <PrivateRoute path="/projetos" exact={true} component={Projetos} />
             <PrivateRoute path="/buscar" exact={true} component={Buscar} />
+            <PrivateRoute path="/buscar/:ext_id" exact={true} component={Buscar} />
 
-            <Route path="*" exact={true} component={ErrorPage} />
+            {/* <Route path="*" exact={true} component={ErrorPage} /> */}
         </Switch>
     </BrowserRouter>,
     document.getElementById('root')
