@@ -30,10 +30,10 @@ class Buscar extends Component {
 				proposta: res.data
 			})
 		}).catch(err => {
-			if(err.response.status == 401)
+			if(err.response.status === 401)
 				localStorage.clear()
 
-			if(err.response.status == 500){
+			if(err.response.status === 500){
 				window.location.replace('/buscar')
 			}
 		})
@@ -50,12 +50,15 @@ class Buscar extends Component {
 			loading: true
 		})
 
+		var method = ''
+		var saved = ''
+
 		if(this.state.proposta.saved){
-			var method = 'DELETE'
-			var saved  = false
+			method = 'DELETE'
+			saved  = false
 		}else{
-			var method = 'POST'
-			var saved  = true
+			method = 'POST'
+			saved  = true
 		}
 
 		axios({
@@ -74,7 +77,7 @@ class Buscar extends Component {
 				proposta: proposta
 			})
 		}).catch(err => {
-			if(err.response.status == 401)
+			if(err.response.status === 401)
 				localStorage.clear()
 		})
 	}
@@ -119,7 +122,7 @@ class Buscar extends Component {
 									Data de Apresentação: <b>{this.formatDate(this.state.proposta.introduction_date)}</b>
 								</Segment>
 								<Segment>
-									<a href={this.state.proposta.link} target="_blank">
+									<a href={this.state.proposta.link} target="_blank" rel="noopener noreferrer">
 										<Icon name='file pdf' size='big' />
 										Proposta na Íntegra
 									</a>

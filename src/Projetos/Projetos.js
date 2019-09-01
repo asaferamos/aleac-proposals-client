@@ -25,7 +25,7 @@ class Projetos extends Component {
 		.then(res => {
 			this.setState({favoritos: res.data})
 		}).catch(err => {
-			if(err.response.status == 401)
+			if(err.response.status === 401)
 				localStorage.clear()
 		})
 	}

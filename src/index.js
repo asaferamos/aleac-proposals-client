@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ErrorPage from './App';
 import Login from './Auth/Login';
 import Logout from './Auth/Logout';
 import Projetos from './Projetos/Projetos'

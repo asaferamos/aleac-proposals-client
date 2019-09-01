@@ -28,7 +28,7 @@ class Login extends Component {
 
 	cadastro = () => {
 		if(this.state.cadastro){
-			if(this.state.email == '' || this.state.senha == '' || this.state.nome == ''){
+			if(this.state.email === '' || this.state.senha === '' || this.state.nome === ''){
 				this.setState({
 					message:{
 						hidden: false,
@@ -59,7 +59,7 @@ class Login extends Component {
 					})
 				}).catch(err => {
 					let errmsg = ''
-					if(err.response.status == 409)
+					if(err.response.status === 409)
 						errmsg = 'Já existe um cadastro com este email'
 
 					this.setState({
@@ -80,13 +80,13 @@ class Login extends Component {
 	}
 
 	handleChange = (e, { value }) => {
-		if(e.currentTarget.id == 'login-email')
+		if(e.currentTarget.id === 'login-email')
 			this.setState({ email: value })
 
-		if(e.currentTarget.id == 'login-senha')
+		if(e.currentTarget.id === 'login-senha')
 			this.setState({ senha: value })
 
-		if(e.currentTarget.id == 'login-nome')
+		if(e.currentTarget.id === 'login-nome')
 			this.setState({ nome: value })
 	}
 
