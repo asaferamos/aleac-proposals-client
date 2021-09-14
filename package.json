@@ -15,7 +15,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "2.1.8",
     "semantic-ui-react": "^0.86.0",
-    "set-value": "2.0.1"
+    "set-value": "4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
